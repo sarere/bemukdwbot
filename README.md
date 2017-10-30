@@ -1,56 +1,45 @@
-# sample-spring-boot-echo
+line-bot-sdk-tiny
+==
 
-sample-spring-boot-echo is a tiny sample bot application based on Spring Boot.
+A very simple SDK (subset) for the LINE Messaging API for PHP.
 
-## Usage
+Description (and motivation)
+--
 
-Run this sample bot using Gradle.
+[line-bot-sdk-php](https://github.com/line/line-bot-sdk-php) is a full-stack implementation of the LINE Messaging API SDK, which uses an OOP interface and functions. It provides an API client, a message builder, an HTTP client, an event parser and other useful components.
 
-    ../gradlew bootRun -Dline.bot.channelToken=YOUR_CHANNEL_TOKEN \
-                       -Dline.bot.channelSecret=YOUR_CHANNEL_SECRET
+On the other hand, line-bot-sdk-tiny provides a simple interface and functions. It contains a part of the API functions (not full function).
 
-or if you finished create `src/main/resources/application.yml` file based on `src/main/resources/application-template.yml`. You can start configured web server just hitting
+This SDK contains only one file, so it is easy to add `LINEBotTiny.php` to your environment and require that from your script.
+And of course, you can also copy and paste this SDK.
 
-    ../gradlew bootRun
+Example
+--
 
-You need to pass the following options.
+See [echo_bot](./echo_bot.php).
 
-  * line.bot.channelToken: Your Channel access token
-  * line.bot.channelSecret: Your Channel secret
+When running this example, make sure that you have set your Channel access token and Channel secret.
 
-For more information about configuration way, refer [Spring Boot Reference - 24. Externalized Configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
+Requirements
+--
 
-## Deploy on Heroku
+PHP 5.4 or later
 
-Deploy this module on Heroku.
+License
+--
 
-### Step 1
+```
+Copyright 2016 LINE Corporation
 
-Get the Channel access token and Channel secret from the Channel Console.
+LINE Corporation licenses this file to you under the Apache License,
+version 2.0 (the "License"); you may not use this file except in compliance
+with the License. You may obtain a copy of the License at:
 
-<img src="https://github.com/line/line-bot-sdk-java/blob/master/sample-spring-boot-echo/_assets/line-bot-configuration.png?raw=true">
+  https://www.apache.org/licenses/LICENSE-2.0
 
-### Step 2
-
-Tap the deploy button.
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/line/line-bot-sdk-java)
-
-### Step 3
-
-Fill in the form and run your instance.
-
-<img src="https://github.com/line/line-bot-sdk-java/blob/master/sample-spring-boot-echo/_assets/heroku.png?raw=true">
-
-### Step 4
-
-Tap the **Manage App** button and copy the name of your Heroku instance.
-
-<img src="https://github.com/line/line-bot-sdk-java/blob/master/sample-spring-boot-echo/_assets/heroku-app-name.png?raw=true">
-
-### Step 5
-
-Set the webhook URL for your Channel on the Channel Console using the following URL:
-`https://${YOUR_HEROKU_APP_NAME}.herokuapp.com/callback`
-
-<img src="https://github.com/line/line-bot-sdk-java/blob/master/sample-spring-boot-echo/_assets/put-webhook-url.png?raw=true">
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations
+under the License.
+```
