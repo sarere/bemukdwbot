@@ -60,7 +60,7 @@ class Route
                     // continue;
                     //\uDBC0\uDC84 LINE emoji
                     $textMessageBuilder = TextMessageBuilder('hello');
-                    $resp = $bot->replyText($event->getReplyToken(), $textMessageBuilder);
+                    $resp = $bot->replyMessage($event->getReplyToken(), $textMessageBuilder);
                     $logger->info($resp->getHTTPStatus() . ': ' . $resp->getRawBody());
                 }
 
