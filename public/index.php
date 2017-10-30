@@ -4,14 +4,14 @@ use \Psr\Http\Message\ResponseInterface as Response;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$app = new Slim\App();
+$app = new \Slim\App;
 $app->get('/hello/{name}', function (Request $request, Response $response) {
     $name = $request->getAttribute('name');
     $response->getBody()->write("Hello, $name");
 
     return $response;
 });
-$app->get('/', function (Request $request, Response $response) {
+$app->get('/asd', function (Request $request, Response $response) {
     $response->getBody()->write("Hello");
 
     return $response;
