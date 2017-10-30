@@ -59,7 +59,7 @@ class Route
                     continue;
                 }
 
-                $replyText = $event->getText() . ' asu';
+                $replyText = $event->getText() . ' \uDBC0\uDC84 LINE emoji';
                 $logger->info('Reply text: ' . $replyText);
                 $resp = $bot->replyText($event->getReplyToken(), $replyText);
                 $logger->info($resp->getHTTPStatus() . ': ' . $resp->getRawBody());
