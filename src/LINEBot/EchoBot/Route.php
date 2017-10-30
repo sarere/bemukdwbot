@@ -55,8 +55,10 @@ class Route
                 }
 
                 if (!($event instanceof TextMessage)) {
-                    $logger->info('Non text message has come');
-                    continue;
+                    // $logger->info('Non text message has come');
+                    // continue;
+                    $resp = $bot->replyText($event->getReplyToken(), "sticker");
+                    $logger->info($resp->getHTTPStatus() . ': ' . $resp->getRawBody());
                 }
 
                 $replyText = $event->getText() . ' \uDBC0\uDC84 LINE emoji';
