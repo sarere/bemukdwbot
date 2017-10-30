@@ -57,11 +57,13 @@ class Route
                 if (!($event instanceof TextMessage)) {
                     // $logger->info('Non text message has come');
                     // continue;
-                    $resp = $bot->replyText($event->getReplyToken(), "sticker");
+                    //\uDBC0\uDC84 LINE emoji
+                    $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello');
+                    $resp = $bot->replyText($event->getReplyToken(), $textMessageBuilder);
                     $logger->info($resp->getHTTPStatus() . ': ' . $resp->getRawBody());
                 }
 
-                $replyText = $event->getText() . ' \uDBC0\uDC84 LINE emoji';
+                $replyText = $event->getText();
                 //$logger->info('Reply text: ' . $replyText);
                 $resp = $bot->replyText($event->getReplyToken(), $replyText);
                 $logger->info($resp->getHTTPStatus() . ': ' . $resp->getRawBody());
