@@ -59,8 +59,8 @@ class Route
                     continue;
                 }
 
-                $replyText = $event->getText();
-                $logger->info('Reply text: asdsad' . $replyText);
+                $replyText = $event->getText() . ' asu';
+                $logger->info('Reply text: ' . $replyText);
                 $resp = $bot->replyText($event->getReplyToken(), $replyText);
                 $logger->info($resp->getHTTPStatus() . ': ' . $resp->getRawBody());
             }
