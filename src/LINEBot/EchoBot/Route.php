@@ -79,7 +79,7 @@ class Route
                 $replyText = $event->getText();
                 //$logger->info('Reply text: ' . $replyText);
                 //$resp = $bot->replyMessage($event->getReplyToken(), $replyText);
-                $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('asss');
+                $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($replyText);
                 $resp = $bot->replyMessage($event->getReplyToken(), $textMessageBuilder);
                 $logger->info($resp->getHTTPStatus() . ' ' . $resp->getRawBody());
             }
