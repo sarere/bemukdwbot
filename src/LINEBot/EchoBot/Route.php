@@ -76,7 +76,7 @@ class Route
                     
                 }
 
-                $replyText = $event->getType();
+                $replyText = $event->getSource();
                 //$logger->info('Reply text: ' . $replyText);
                 //$resp = $bot->replyMessage($event->getReplyToken(), $replyText);
                 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($replyText);
