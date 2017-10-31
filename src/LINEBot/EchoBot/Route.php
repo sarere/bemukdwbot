@@ -58,9 +58,18 @@ class Route
                     // $logger->info('Non text message has come');
                     // continue;
                     //\uDBC0\uDC84 LINE emoji
-                    $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('\uDBC0\uDC84 LINE emoji');
-                    $resp = $bot->replyMessage($event->getReplyToken(), $textMessageBuilder);
-                    $logger->info($resp->getHTTPStatus() . ' ' . $resp->getRawBody());
+                    $response = $bot->getProfile('<userId>');
+                    if ($response->isSucceeded()) {
+                        $profile = $response->getJSONDecodedBody();
+                        echo $profile['displayName'];
+                        echo $profile['pictureUrl'];
+                        echo $profile['statusMessage'];
+
+                        $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($profile['displayName']);
+                        $resp = $bot->replyMessage($event->getReplyToken(), $textMessageBuilder);
+                        $logger->info($resp->getHTTPStatus() . ' ' . $resp->getRawBody());
+                    }
+                    
                 }
 
                 $replyText = $event->getText();
