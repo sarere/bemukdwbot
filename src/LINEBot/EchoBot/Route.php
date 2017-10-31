@@ -23,6 +23,7 @@ use LINE\LINEBot\Event\MessageEvent;
 use LINE\LINEBot\Event\MessageEvent\TextMessage;
 use LINE\LINEBot\Exception\InvalidEventRequestException;
 use LINE\LINEBot\Exception\InvalidSignatureException;
+use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
 
 class Route
 {
@@ -57,13 +58,15 @@ class Route
                 if (!($event instanceof TextMessage)) {
                     // $logger->info('Non text message has come');
                     // continue;
-                    $resp = $bot->replyText($event->getReplyToken(), "sticker");
+                    //\uDBC0\uDC84 LINE emoji
+                    $textMessageBuilder = TextMessageBuilder('hello');
+                    $resp = $bot->replyMessage($event->getReplyToken(), $textMessageBuilder);
                     $logger->info($resp->getHTTPStatus() . ': ' . $resp->getRawBody());
                 }
 
-                $replyText = $event->getText() . ' \uDBC0\uDC84 LINE emoji';
+                $replyText = $event->getText();
                 //$logger->info('Reply text: ' . $replyText);
-                $resp = $bot->replyText($event->getReplyToken(), $replyText);
+                $resp = $bot->replyMessage($event->getReplyToken(), $replyText);
                 $logger->info($resp->getHTTPStatus() . ': ' . $resp->getRawBody());
             }
 
