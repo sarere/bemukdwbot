@@ -68,6 +68,10 @@ class Route
                         $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($profile['displayName']);
                         $resp = $bot->replyMessage($event->getReplyToken(), $textMessageBuilder);
                         $logger->info($resp->getHTTPStatus() . ' ' . $resp->getRawBody());
+                    } else {
+                        $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello');
+                        $resp = $bot->replyMessage($event->getReplyToken(), $textMessageBuilder);
+                        $logger->info($resp->getHTTPStatus() . ' ' . $resp->getRawBody());
                     }
                     
                 }
